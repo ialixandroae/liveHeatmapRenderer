@@ -10,8 +10,7 @@ To increase efficiency, the views have been synchronized.
 
 ![13 live heatmap renderer](https://user-images.githubusercontent.com/18401030/42904164-ce20560a-8adc-11e8-9410-ea24544e3b42.png)
 
-![letourdefrance2018](https://user-images.githubusercontent.com/18401030/41354025-9ba61c04-6f26-11e8-90bc-6f26a84f3f59.gif)
-
+![live heatmap renderer app](https://user-images.githubusercontent.com/18401030/42905267-33087aa4-8ae0-11e8-8ff5-fd9cdc934fca.gif)
 
 [See it live!](https://ialixandroae.github.io/liveHeatmapRenderer/)
 
