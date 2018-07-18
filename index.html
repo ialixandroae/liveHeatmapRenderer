@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HeatMap Editing App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./public/dist/style.css" />
+    <!-- In the head -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
+    <script>
+        var dojoConfig = {
+            has: {
+                "esri-featurelayer-webgl": 1
+            }
+        };
+    </script>
+    <script src="https://js.arcgis.com/4.8/"></script>
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.1/css/calcite-web.min.css">
+</head>
+<body>
+    <header class="top-nav fade-in">
+        <div class="grid-container">
+            <div class="column-24">
+                <div class="tablet-hide">
+                    <a href="#" class="top-nav-title">Live <span id="heatmapTitle">HeatMap</span> Rendering</a>
+                </div>
+    
+                <div class="tablet-show top-nav-flex">
+                    <header class="top-nav-flex-title">
+                        <a href="/" class="top-nav-link">Live <span id="heatmapTitle">HeatMap</span> Rendering
+                        </a>
+                    </header> 
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="maps">
+        <div id="mapHeatmap"></div>
+        <div id="mapEditing">
+            <div id="editArea" class="editArea-container">
+                <div id="addFeatureDiv">
+                    <h3 class="list-heading">Collect Points</h3>
+                    <ul style="font-size: 18px; padding-left: 1.5em;">
+                        <li>Click Add point button</li>
+                        <li>Click on the map to create a point</li>
+                        <li>Zoom in/out & pan the map to refresh data</li>
+                        <li>Observe heatmap</li>
+                    </ul>
+                    <input type="button" class="edit-button" value="Add point" id="btnAddFeature">
+                </div>
+            
+                <div id="updateInstructionDiv" style="text-align:center">
+                    <p class="or-wrap">
+                        <span class="or-text">Or</span>
+                    </p>
+                    <p>Select a point to delete.</p>
+                </div>
+            
+                <div id="featureUpdateDiv" style="display:none; margin-top: 1em;">
+                    
+            
+                    <div id="deleteArea">
+                        <input type="button" class="edit-button" value="Delete point" id="btnDelete">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./public/dist/app.js"></script>
+    
+</body>
+</html>

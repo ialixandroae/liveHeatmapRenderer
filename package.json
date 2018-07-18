@@ -1,0 +1,29 @@
+{
+  "name": "heatmapediting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ionut Alixandroae",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "dependencies": {
+    "live-server": "^1.2.0"
+  }
+}
