@@ -4,6 +4,7 @@ require([
     "esri/layers/VectorTileLayer",
     "esri/Basemap",
     "esri/layers/Layer",
+    "esri/layers/GraphicsLayer",
     "esri/WebMap",
     "esri/Graphic",
     "esri/widgets/Expand",
@@ -11,12 +12,12 @@ require([
     "dojo/on",
     "dojo/dom",
     "dojo/domReady!"
-], function (Map, MapView, VectorTileLayer, Basemap, Layer, WebMap, Graphic, Expand,
+], function (Map, MapView, VectorTileLayer, Basemap, Layer, GraphicsLayer, WebMap, Graphic, Expand,
     watchUtils,
     on, dom) {
 
     let featureLayer, editExpand;
-
+    let graphicsLayer = new GraphicsLayer();
     // feature edit area domNodes
     let editArea, editFeature, attributeEditing, updateInstructionDiv;
 
@@ -46,6 +47,7 @@ require([
     const mapEditing = new Map({
         basemap: vectorBasemap
     });
+    mapEditing.add(graphicsLayer);
 
     const mapHeatmap = new WebMap({
         portalItem: {
@@ -206,8 +208,6 @@ require([
         attributeEditing = dom.byId("featureUpdateDiv");
         
 
-        
-
         // *****************************************************
         // btnAddFeature click event
         // create a new feature at the click location
@@ -226,12 +226,30 @@ require([
                         geometry: point,
                         attributes: {}
                     });
+
+                    let newGraphic = new Graphic({
+                        geometry: point,
+                        symbol: {
+                            type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
+                            style: "circle",
+                            color: "red",
+                            size: "17px",  // pixels
+                            outline: {  // autocasts as new SimpleLineSymbol()
+                                color: [255, 255, 255],
+                                width: 1  // points
+                            }
+                        }
+                    });
+
+                    graphicsLayer.add(newGraphic);
+                    
                     
                     let edits = {
                         addFeatures: [newIncident]
                     };
 
                     applyEdits(edits);
+                    
                     
                     // ui changes in response to creating a new feature
                     // display feature update and delete portion of the edit area
@@ -358,5 +376,11 @@ require([
 
     // bind the views
     synchronizeViews([viewEditing, viewHeatmap]);
+
+    // Watch view's stationary property for becoming true.
+    watchUtils.when(viewEditing, "scale", function () {
+        // Remove graphics from the graphics layer so that real data can be seen
+        graphicsLayer.removeAll();
+    });
     
 });
