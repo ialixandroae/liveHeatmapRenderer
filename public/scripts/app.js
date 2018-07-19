@@ -275,6 +275,7 @@ require([
             let edits = {
                 deleteFeatures: [editFeature]
             };
+            graphicsLayer.removeAll();
             applyEdits(edits);
         });
     };
