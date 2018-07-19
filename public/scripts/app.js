@@ -18,21 +18,9 @@ require([
 
     let featureLayer, editExpand;
     let graphicsLayer = new GraphicsLayer();
+    
     // feature edit area domNodes
     let editArea, editFeature, attributeEditing, updateInstructionDiv;
-
-    // const simpleRenderer = {
-    //     type: "simple",  // autocasts as new SimpleRenderer()
-    //     symbol: {
-    //         type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
-    //         size: 12,
-    //         color: "red",
-    //         outline: {  // autocasts as new SimpleLineSymbol()
-    //             width: 0.5,
-    //             color: "white"
-    //         }
-    //     }
-    // };
 
     const vtlItem = new VectorTileLayer({
         url: "http://www.arcgis.com/sharing/rest/content/items/2557730096db4d2fa3e64980d431c29e/resources/styles/root.json?f=pjson"
